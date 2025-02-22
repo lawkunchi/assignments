@@ -9,7 +9,7 @@ y = 40
 x = x + y
 x = x - y
 ```
-#### **Step-by-step execution:**
+#### **Explanation:**
 - `x = 10`
 - `y = 20`
 - `x = y` → Now `x = 20`
@@ -28,7 +28,7 @@ k = 17
 for k in range(10, k):
     k = w
 ```
-#### **Step-by-step execution:**
+#### **Explanation:**
 - `w = 10`
 - `k = 17`
 - The loop runs for `k in range(10, 17)`, meaning `k` takes values from `10` to `16`. However, the statement inside the loop (`k = w`) does not modify the loop variable itself.
@@ -45,7 +45,7 @@ for i in range(b):
     a += 3
     b -= 1
 ```
-#### **Step-by-step execution:**
+#### **Explanation:**
 - `a = 6`
 - `b = 6`
 - The loop runs **b times** (`range(6)` means it iterates 6 times), and in each iteration:
@@ -71,7 +71,7 @@ for i in range(b):
 ```python
 x = (2+3)**(5-2*2)
 ```
-#### **Step-by-step execution:**
+#### **Explanation:**
 - `2 + 3 = 5`
 - `5 - 2 * 2 = 5 - 4 = 1`
 - `5 ** 1 = 5`
