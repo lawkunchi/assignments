@@ -83,18 +83,46 @@ x = (2+3)**(5-2*2)
 ### **Task 4: Sine Loops (8 marks)**
 You need to generate a sine wave plot in Python. You can use `matplotlib` for this:
 ```python
-import numpy as np
-import matplotlib.pyplot as plt
+import turtle
+import math
 
-x = np.linspace(-np.pi, np.pi, 100)  # Generate x values from -π to π
-y = np.sin(x)  # Compute the sine of x
+# Set up the turtle screen
+turtle.setup(800, 400)
+screen = turtle.Screen()
+screen.bgcolor("white")
 
-plt.plot(x, y)
-plt.axhline(0, color='black', linewidth=0.5)  # x-axis
-plt.axvline(0, color='black', linewidth=0.5)  # y-axis
-plt.grid(True, linestyle='--', linewidth=0.5)
-plt.title("Sine Wave")
-plt.show()
+# Create the turtle
+fred = turtle.Turtle()
+fred.speed(0)  # Fastest speed
+fred.penup()
+
+# Move to the starting position
+fred.goto(-360, 0)
+fred.pendown()
+
+# Draw the sine wave
+for angle in range(-360, 361, 5):  # Step by 5 for smooth curve
+    y = math.sin(math.radians(angle)) * 100  # Scale for visibility
+    fred.goto(angle, y)
+
+# Draw x-axis
+fred.penup()
+fred.goto(-360, 0)
+fred.pendown()
+fred.goto(360, 0)
+
+# Draw y-axis
+fred.penup()
+fred.goto(0, -120)
+fred.pendown()
+fred.goto(0, 120)
+
+# Hide the turtle
+fred.hideturtle()
+
+# Keep the window open
+screen.mainloop()
+
 ```
 
 ---
@@ -102,20 +130,60 @@ plt.show()
 ### **Task 6: Sine Wave Plus (4 marks)**
 To extend the sine wave by adding values to the axes:
 ```python
-import numpy as np
-import matplotlib.pyplot as plt
+import turtle
+import math
 
-x = np.linspace(-180, 180, 100)  # Convert degrees to radians
-y = np.sin(np.radians(x))  # Compute sine values
+# Set up the turtle screen
+turtle.setup(800, 400)
+screen = turtle.Screen()
+screen.bgcolor("white")
 
-plt.plot(x, y)
-plt.xticks([-180, -90, 0, 90, 180])  # Label x-axis with degrees
-plt.yticks([-1, -0.5, 0, 0.5, 1])  # Label y-axis
-plt.axhline(0, color='black', linewidth=0.5)  # x-axis
-plt.axvline(0, color='black', linewidth=0.5)  # y-axis
-plt.grid(True, linestyle='--', linewidth=0.5)
-plt.title("Extended Sine Wave")
-plt.show()
+# Create the turtle
+fred = turtle.Turtle()
+fred.speed(0)  # Fastest speed
+fred.penup()
+
+# Move to the starting position
+fred.goto(-360, 0)
+fred.pendown()
+
+# Draw the sine wave
+for angle in range(-360, 361, 5):  # Step by 5 for smoother curve
+    y = math.sin(math.radians(angle)) * 100  # Scale for visibility
+    fred.goto(angle, y)
+
+# Draw x-axis
+fred.penup()
+fred.goto(-360, 0)
+fred.pendown()
+fred.goto(360, 0)
+
+# Label the x-axis
+x_labels = [-360, -270, -180, -90, 0, 90, 180, 270, 360]
+for x in x_labels:
+    fred.penup()
+    fred.goto(x, -15)  # Move slightly below the axis
+    fred.write(str(x), align="center", font=("Arial", 10, "normal"))
+
+# Draw y-axis
+fred.penup()
+fred.goto(0, -120)
+fred.pendown()
+fred.goto(0, 120)
+
+# Label the y-axis
+y_labels = [-100, -50, 0, 50, 100]  # Equivalent to -1 to 1
+for y in y_labels:
+    fred.penup()
+    fred.goto(10, y)  # Move slightly right of the axis
+    fred.write(str(y / 100), align="left", font=("Arial", 10, "normal"))  # Convert back to -1 to 1 scale
+
+# Hide the turtle
+fred.hideturtle()
+
+# Keep the window open
+screen.mainloop()
+
 ```
 
 ---
